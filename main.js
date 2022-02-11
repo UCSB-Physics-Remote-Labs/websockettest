@@ -2,7 +2,7 @@ let header = document.getElementById("header");
 let textInput = document.getElementById("wsCmd")
 
 //Create Websocket and connect to raspberry pi
-const socket = new WebSocket('ws://raspberrypi:8081')
+const socket = new WebSocket('ws://127.0.1.1:8081')
 
 // When text is entered and the "Enter" key is hit do something with the value.
 // Maybe just have the raspberrry pi print the text.
