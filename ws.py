@@ -1,8 +1,8 @@
 import asyncio
 import websockets
 
-async def greet():
-    async with websockets.connect('ws://127.0.1.1:8081') as websocket:
-        await websocket.send('Hi, I am Raspberry Pi')
+async def hello():
+    async with websockets.connect('ws://192.168.0.150:8081') as websocket:
+        await websocket.send('Sup')
         await websocket.recv()
-asyncio.run(greet())
+asyncio.run(hello())
