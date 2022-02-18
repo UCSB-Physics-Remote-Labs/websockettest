@@ -1,8 +1,11 @@
 import asyncio
 import websockets
 
-async def hello():
-    async with websockets.connect('ws://192.168.0.150:8081') as websocket:
-        await websocket.send('Sup')
-        await websocket.recv()
-asyncio.run(hello())
+async def server(websocket):
+    async for message in websocket:
+        await websocket.send(f'You told me: {message}')
+
+async def main():
+    async with websockets.serve(server, "192.168.0.150", 8081):
+        await asyncio.Future()
+asyncio.run(main())
