@@ -12,11 +12,11 @@ class websocketServer():
         print("Initialise server.")
         self.port = 6048
         self.address = "0.0.0.0"
-    async def server(websocket):
+    async def server(self, websocket):
         async for message in websocket:
             await websocket.send(f'You told me: {message}')
 
-    async def main():
+    async def main(self):
         async with websockets.serve(server, "0.0.0.0", 6048):
             await asyncio.Future()
 ws = websocketServer()
