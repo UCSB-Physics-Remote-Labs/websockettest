@@ -8,7 +8,7 @@ var protocol = location.protocol === "https:" ? "wss:" : "ws:";
 var port = 8081;
 var wsurl = protocol + '//' + signalling_server_address;
 
-var dataChannel = new WebSocket(wsurl);
+var websocket = new WebSocket(wsurl);
 
 //Connected to websocket
 websocket.addEventListener('open', function (event) {
