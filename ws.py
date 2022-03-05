@@ -1,11 +1,11 @@
 import asyncio
 import websockets
-import http.server
-import socketserver
+# import http.server
+# import socketserver
 
-port = 80
+# port = 80
 
-Handler = http.server.SimpleHTTPRequestHandler
+# Handler = http.server.SimpleHTTPRequestHandler
 
 async def server(websocket):
     async for message in websocket:
@@ -16,6 +16,6 @@ async def main():
         await asyncio.Future()
 asyncio.run(main())
 
-with socketserver.TCPServer(("", port), Handler) as httpd:
-    print("Serving at port", port)
-    httpd.serve_forever()
+# with socketserver.TCPServer(("", port), Handler) as httpd:
+#     print("Serving at port", port)
+#     httpd.serve_forever()
