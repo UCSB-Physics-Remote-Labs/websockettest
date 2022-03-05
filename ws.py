@@ -17,7 +17,7 @@ class websocketServer():
             await websocket.send(f'You told me: {message}')
 
     async def main(self):
-        async with websockets.serve(server, "0.0.0.0", 6048):
+        async with websockets.serve(self.server, "0.0.0.0", 6048):
             await asyncio.Future()
 ws = websocketServer()
 asyncio.run(ws.main())
