@@ -2,7 +2,13 @@ let header = document.getElementById("header");
 let textInput = document.getElementById("wsCmd")
 
 //Create websocket and connect to server (raspberry pi)
-const websocket = new WebSocket('ws://192.168.0.150:8081');
+var signalling_server_hostname = location.hostname;
+var signalling_server_address = signalling_server_hostname + location.pathname + "ws2";
+var protocol = location.protocol === "https:" ? "wss:" : "ws:";
+var port = 8081;
+var wsurl = protocol + '//' + signalling_server_address;
+
+var dataChannel = new WebSocket(wsurl);
 
 //Connected to websocket
 websocket.addEventListener('open', function (event) {
