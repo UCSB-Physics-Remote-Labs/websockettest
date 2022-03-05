@@ -7,15 +7,20 @@ import websockets
 
 # Handler = http.server.SimpleHTTPRequestHandler
 
-async def server(websocket):
-    async for message in websocket:
-        await websocket.send(f'You told me: {message}')
+class websocketServer():
+    def __init__(self):
+        print("Initialise server.")
+        self.port = 6048
+        self.address = "0.0.0.0"
+    async def server(websocket):
+        async for message in websocket:
+            await websocket.send(f'You told me: {message}')
 
-async def main():
-    async with websockets.serve(server, "0.0.0.0", 6048):
-        await asyncio.Future()
-        print("Working")
-asyncio.run(main())
+    async def main():
+        async with websockets.serve(server, "0.0.0.0", 6048):
+            await asyncio.Future()
+ws = websocketServer()
+asyncio.run(ws.main())
 
 # with socketserver.TCPServer(("", port), Handler) as httpd:
 #     print("Serving at port", port)
