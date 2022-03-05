@@ -14,6 +14,7 @@ async def server(websocket):
 async def main():
     async with websockets.serve(server, "0.0.0.0", 6048):
         await asyncio.Future()
+        print("Working")
 asyncio.run(main())
 
 # with socketserver.TCPServer(("", port), Handler) as httpd:
